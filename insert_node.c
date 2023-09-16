@@ -39,28 +39,49 @@ void insert_last_position()
 }
 void insert_any_position()
 {
-    s *p=start; //p is a pointer and p is start from start node
+    s *p = start;
     int key;
     printf("\nEnter searching value where you want to insert : ");
-    scanf("%d",&key);
-    while(p->next!=NULL)
+    scanf("%d", &key);
+
+    s *anyNode = (s *)malloc(sizeof(s));
+    int i;
+    printf("Enter data for insertion after %d :", key);
+    scanf("%d", &i);
+    anyNode->id = i;
+
+    while (p != NULL)
     {
-        if(p->id==key)
+        if (p->id == key)
         {
-            s *anyNode;
-            anyNode=(s *) malloc(sizeof (s));
-            int i;
-            printf("Enter data for insertion after %d :",key);
-            scanf("%d",&i);
-            anyNode->id=i;
-            anyNode->next=p->next;  //it connect new node with next node
-            p->next=anyNode;        // it connect new node with previous node
+            anyNode->next = p->next;
+            p->next = anyNode;
+            printf("Node inserted successfully.\n");
             return;
         }
-        else
-        {
-            p=p->next; //for go to next element
-        }
+        p = p->next;
+    }
+
+    // If the key is not found, insert the node at the end
+    anyNode->next = NULL;
+    p = start;
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = anyNode;
+    printf("Node inserted at the end.\n");
+}
+
+
+void show()
+{
+    s *point;
+    point=start;
+    while(point!=NULL) //until point is got NUll it will continue
+    {
+        printf("%d\t",point->id);
+        point=point->next;  //it works similar i++ that means go to next Node
     }
 }
 void show()
