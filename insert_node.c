@@ -1,6 +1,6 @@
 //
 // Created by ashik on 9/16/2023.
-//
+//Insert node for first,last and anyposition
 #include<stdio.h>
 #include<stdlib.h>
 struct student{
