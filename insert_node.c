@@ -84,16 +84,7 @@ void show()
         point=point->next;  //it works similar i++ that means go to next Node
     }
 }
-void show()
-{
-    s *point;
-    point=start;
-    while(point!=NULL) //until point is got NUll it will continue
-    {
-        printf("%d\t",point->id);
-        point=point->next;  //it works similar i++ that means go to next Node
-    }
-}
+
 int main()
 {
     start = (s *)malloc(sizeof(s));
